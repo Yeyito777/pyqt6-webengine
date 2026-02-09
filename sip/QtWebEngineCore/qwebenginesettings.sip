@@ -92,6 +92,7 @@ public:
 %If (QtWebEngine_6_10_0 -)
         BackForwardCacheEnabled,
 %End
+        ElementShaderEnabled,
     };
 
     enum FontSize
