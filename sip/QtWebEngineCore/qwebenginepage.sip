@@ -162,6 +162,7 @@ public:
     QUrl iconUrl() const;
     qreal zoomFactor() const;
     void setZoomFactor(qreal factor);
+    void notifyUserActivation();
     QWebEngineSettings *settings() const;
 
 signals:
