@@ -163,6 +163,7 @@ public:
     qreal zoomFactor() const;
     void setZoomFactor(qreal factor);
     void notifyUserActivation();
+    QString networkQuery(const QString &queryType, const QString &argsJson = QString()) const;
     void smoothScrollBy(int dx, int dy, double factor, int posX = -1, int posY = -1);
     QWebEngineSettings *settings() const;
 
