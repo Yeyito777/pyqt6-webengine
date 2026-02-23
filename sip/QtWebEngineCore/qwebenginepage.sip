@@ -445,23 +445,50 @@ public:
         
         sipCpp->printToPdf([a0](const QByteArray &arg) {
             SIP_BLOCK_THREADS
-            
+
             PyObject *res;
-        
+
             res = sipCallMethod(NULL, a0, "N", new QByteArray(arg), sipType_QByteArray, NULL);
-        
+
             Py_DECREF(a0);
-        
+
             if (!res)
                 pyqt6_qtwebenginecore_err_print();
             else
                 Py_DECREF(res);
-        
+
             SIP_UNBLOCK_THREADS
         }, *a1, *a2);
-        
+
         Py_END_ALLOW_THREADS
 %End
+    void captureScreenshot(const QSize &outputSize, SIP_PYCALLABLE resultCallback /TypeHint="Callable[[QByteArray], None]"/);
+%MethodCode
+        Py_INCREF(a1);
+
+        Py_BEGIN_ALLOW_THREADS
+
+        sipCpp->captureScreenshot(*a0, [a1](const QByteArray &arg) {
+            SIP_BLOCK_THREADS
+
+            PyObject *res;
+
+            res = sipCallMethod(NULL, a1, "N", new QByteArray(arg), sipType_QByteArray, NULL);
+
+            Py_DECREF(a1);
+
+            if (!res)
+                pyqt6_qtwebenginecore_err_print();
+            else
+                Py_DECREF(res);
+
+            SIP_UNBLOCK_THREADS
+        });
+
+        Py_END_ALLOW_THREADS
+%End
+    static void suppressFocusNotifications();
+    static void restoreFocusNotifications();
 
 signals:
     void loadingChanged(const QWebEngineLoadingInfo &loadingInfo);
